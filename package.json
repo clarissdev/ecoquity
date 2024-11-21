@@ -1,8 +1,8 @@
 {
-  "name": "ecoquity",
+  "name": "my-gatsby-site",
   "version": "1.0.0",
   "private": true,
-  "description": "ecoquity",
+  "description": "my-gatsby-site",
   "author": "Thanh Dinh",
   "keywords": [
     "gatsby"
@@ -16,10 +16,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mdx-js/react": "^3.1.0",
     "gatsby": "^5.14.0",
-    "gatsby-plugin-mdx": "^5.14.0",
     "gatsby-source-filesystem": "^5.14.0",
+    "gatsby-transformer-remark": "^6.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
