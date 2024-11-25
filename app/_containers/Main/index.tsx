@@ -1,4 +1,5 @@
 import cx from "clsx";
+
 import SectionAboveTheFold from "./containers/SectionAboveTheFold";
 import styles from "./index.module.scss";
 

@@ -1,7 +1,9 @@
-import Link from "next/link";
-import Logo from "./components/Logo";
 import cx from "clsx";
+import Link from "next/link";
+
+import Logo from "./components/Logo";
 import styles from "./index.module.scss";
+
 import Flex from "@/modules/app-ui/Flex";
 
 type Props = {

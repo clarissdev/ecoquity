@@ -1,10 +1,12 @@
-import Flex from "@/modules/app-ui/Flex";
-import jpgFigure from "./assets/figure.jpg";
-import Image from "next/image";
 import cx from "clsx";
-import styles from "./index.module.scss";
+import Image from "next/image";
 import Link from "next/link";
+
+import jpgFigure from "./assets/figure.jpg";
+import styles from "./index.module.scss";
+
 import Button from "@/modules/app-ui/Button";
+import Flex from "@/modules/app-ui/Flex";
 
 type Props = {
   className?: string;
