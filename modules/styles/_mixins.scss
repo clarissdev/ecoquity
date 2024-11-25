@@ -1,0 +1,39 @@
+@use "@/modules/styles/_colors.scss" as colors;
+
+@mixin formatAsLink($alwaysUnderline: false) {
+  cursor: pointer;
+  font-family: var(--font-family-roboto);
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  transition-duration: 125ms;
+  transition-property: color, text-decoration-color;
+  padding: 2px;
+  border-radius: 4px;
+
+  @if $alwaysUnderline {
+    text-decoration-color: currentColor;
+  }
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-color: colors.$primary80;
+    color: colors.$primary80;
+  }
+
+  &:active {
+    text-decoration-color: colors.$primary64;
+    color: colors.$primary64;
+  }
+
+  &:focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: colors.$primary;
+  }
+
+  // &[href$="#disabled"] {
+  //   pointer-events: none;
+  //   text-decoration-color: theme.$colorLnDisabled;
+  //   color: theme.$colorLnDisabled;
+  // }
+}

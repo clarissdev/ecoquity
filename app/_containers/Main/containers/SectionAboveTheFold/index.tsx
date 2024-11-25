@@ -1,0 +1,40 @@
+import Flex from "@/modules/app-ui/Flex";
+import jpgFigure from "./assets/figure.jpg";
+import Image from "next/image";
+import cx from "clsx";
+import styles from "./index.module.scss";
+import Link from "next/link";
+import Button from "@/modules/app-ui/Button";
+
+type Props = {
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+export default function SectionAboveTheFold({ className, style }: Props) {
+  return (
+    <section className={cx(styles.container, className)} style={style}>
+      <Flex.Row flexWrap="wrap" className={styles.content}>
+        <Flex.Col
+          flex="1 1 300px"
+          padding="30px"
+          justifyContent="center"
+          gap="24px"
+        >
+          <h1>Ecoquity: Young People Taking Action for a Sustainable Future</h1>
+          <p>
+            Ecoquity is more than just a club. Born out of urgency and hope
+            during a record-breaking summer, Ecoquity empowers students to take
+            the lead in building a sustainable future.
+          </p>
+          <div>
+            <Button.Link href="">Explore Our Articles</Button.Link>
+          </div>
+        </Flex.Col>
+        <Flex.Row flex="1 1 300px" padding="30px" justifyContent="center">
+          <Image width="400" src={jpgFigure} alt="figure" />
+        </Flex.Row>
+      </Flex.Row>
+    </section>
+  );
+}

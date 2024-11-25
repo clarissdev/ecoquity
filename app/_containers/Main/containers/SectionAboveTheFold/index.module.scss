@@ -1,0 +1,32 @@
+@use "@/modules/styles/_colors.scss" as colors;
+
+.container {
+  padding: 36px;
+  color: colors.$primary;
+  background-image: linear-gradient(
+    to bottom right,
+    colors.$primary24 0%,
+    colors.$primary16 16%,
+    colors.$primary08 32%,
+    white 50%,
+    colors.$primary08 68%,
+    colors.$primary16 84%,
+    colors.$primary24 100%
+  );
+
+  h1 {
+    font-size: 52px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.figure {
+  box-shadow: 3px 3px 3px 3px #969696;
+}

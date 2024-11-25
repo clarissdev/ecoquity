@@ -1,0 +1,28 @@
+import Link from "next/link";
+import Logo from "./components/Logo";
+import cx from "clsx";
+import styles from "./index.module.scss";
+import Flex from "@/modules/app-ui/Flex";
+
+type Props = {
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+export default function Navbar({ className, style }: Props) {
+  return (
+    <nav className={cx(styles.container, className)} style={style}>
+      <Link href="/" className={styles.link}>
+        <Logo height={52} className={styles.logo} />
+      </Link>
+      <Flex.Row gap="16px">
+        <Link href="/articles" className={styles.link}>
+          Article
+        </Link>
+        <Link href="/about" className={styles.link}>
+          About Us
+        </Link>
+      </Flex.Row>
+    </nav>
+  );
+}

@@ -1,0 +1,25 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+
+.container {
+  height: 80px;
+  color: colors.$primary;
+  border-bottom: 1px solid colors.$black16;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 36px;
+
+  a {
+    all: unset;
+    display: inline;
+
+    color: colors.$primary;
+    font-weight: 700;
+    @include mixins.formatAsLink(false);
+  }
+}
+
+.logo {
+  transform: translateY(4px);
+}
