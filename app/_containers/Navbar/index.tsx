@@ -16,6 +16,7 @@ export default function Navbar({ className, style }: Props) {
     <nav className={cx(styles.container, className)} style={style}>
       <Link href="/" className={styles.link}>
         <Logo height={52} className={styles.logo} />
+        <Logo.Compress height={30} className={styles.logoCompress} />
       </Link>
       <Flex.Row gap="16px">
         <Link href="/articles" className={styles.link}>

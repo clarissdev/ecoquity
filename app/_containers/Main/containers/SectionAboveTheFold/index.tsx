@@ -1,6 +1,5 @@
 import cx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import jpgFigure from "./assets/figure.jpg";
 import styles from "./index.module.scss";
@@ -19,9 +18,9 @@ export default function SectionAboveTheFold({ className, style }: Props) {
       <Flex.Row flexWrap="wrap" className={styles.content}>
         <Flex.Col
           flex="1 1 300px"
-          padding="30px"
           justifyContent="center"
           gap="24px"
+          className={styles.row}
         >
           <h1>Ecoquity: Young People Taking Action for a Sustainable Future</h1>
           <p>
@@ -33,8 +32,17 @@ export default function SectionAboveTheFold({ className, style }: Props) {
             <Button.Link href="">Explore Our Articles</Button.Link>
           </div>
         </Flex.Col>
-        <Flex.Row flex="1 1 300px" padding="30px" justifyContent="center">
-          <Image width="400" src={jpgFigure} alt="figure" />
+        <Flex.Row
+          flex="1 1 300px"
+          justifyContent="center"
+          className={styles.row}
+        >
+          <Image
+            className={styles.figure}
+            width="400"
+            src={jpgFigure}
+            alt="figure"
+          />
         </Flex.Row>
       </Flex.Row>
     </section>

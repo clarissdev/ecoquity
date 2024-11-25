@@ -2,13 +2,20 @@
 @use "@/modules/styles/_mixins.scss" as mixins;
 
 .container {
-  height: 80px;
   color: colors.$primary;
   // border-bottom: 1px solid colors.$black16;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 36px;
+
+  @include mixins.media-xs() {
+    height: 52px;
+  }
+
+  @include mixins.media-lg() {
+    height: 80px;
+  }
 
   a {
     all: unset;
@@ -22,4 +29,24 @@
 
 .logo {
   transform: translateY(4px);
+
+  @include mixins.media-xs() {
+    display: none;
+  }
+
+  @include mixins.media-lg() {
+    display: block;
+  }
+}
+
+.logoCompress {
+  transform: translateY(4px);
+
+  @include mixins.media-xs() {
+    display: block;
+  }
+
+  @include mixins.media-lg() {
+    display: none;
+  }
 }
