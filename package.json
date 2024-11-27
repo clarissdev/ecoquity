@@ -11,10 +11,12 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "sass": "^1.81.0"
+    "sass": "^1.81.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
