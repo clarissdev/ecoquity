@@ -1,7 +1,12 @@
 import { notFound } from "next/navigation";
 import { z } from "zod";
 
+import { Main } from "./_containers/Main";
+import styles from "./page.module.scss";
+
+import Navbar from "@/app/_containers/Navbar";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
+import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
 const Props = z.object({
   params: z.promise(
@@ -18,18 +23,17 @@ export default async function Page(props: Props) {
     notFound();
   }
   const { slug } = await parsedProps.data.params;
-  const data = await httpGet$GetPosts(`/posts`, { slug }).catch((error) => {
-    console.log(error);
-  });
+  const data = await httpGet$GetPosts(`/posts`, { slug }).catch(
+    intentionallyIgnoreError,
+  );
   if (!data) {
     notFound();
   }
   const post = data[0];
   return (
-    <div>
-      <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
-      <div>Author: {post.author}</div>
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+    <div className={styles.container}>
+      <Navbar />
+      <Main post={post} />
     </div>
   );
 }
