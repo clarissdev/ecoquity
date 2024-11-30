@@ -1,0 +1,70 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "sass:color" as color;
+
+.container {
+  font-size: 14px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+  // background-image: linear-gradient(
+  //   to bottom left,
+  //   colors.$primary24 0%,
+  //   colors.$primary16 16%,
+  //   colors.$primary08 32%,
+  //   white 50%,
+  //   colors.$primary08 68%,
+  //   colors.$primary16 84%,
+  //   colors.$primary24 100%
+  // );
+  border-top: 1px solid colors.$black08;
+  color: colors.$black80;
+  font-weight: 500;
+}
+
+.content {
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.linkIcon {
+  display: flex;
+
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid colors.$black16;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: color.adjust(
+      colors.$white,
+      $saturation: -50%,
+      $lightness: -3%
+    );
+  }
+
+  &:active {
+    background-color: color.adjust(
+      colors.$white,
+      $saturation: -70%,
+      $lightness: -3%
+    );
+  }
+}
+
+.borderTop {
+  border-top: 1px solid colors.$black08;
+}
+
+.colorPrimary {
+  color: colors.$primary;
+}

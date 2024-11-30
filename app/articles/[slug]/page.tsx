@@ -4,6 +4,7 @@ import { z } from "zod";
 import { Main } from "./_containers/Main";
 import styles from "./page.module.scss";
 
+import Footer from "@/app/_containers/Footer";
 import Navbar from "@/app/_containers/Navbar";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
@@ -34,6 +35,7 @@ export default async function Page(props: Props) {
     <div className={styles.container}>
       <Navbar />
       <Main post={post} />
+      <Footer></Footer>
     </div>
   );
 }
