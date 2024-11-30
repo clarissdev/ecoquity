@@ -47,3 +47,15 @@ export const Post = z.object({
   tags: z.number().array(),
 });
 export type Post = z.infer<typeof Post>;
+
+export const Author = z.object({
+  id: z.number(),
+  name: z.string(),
+  url: z.string(),
+  description: z.string(),
+  link: z.string(),
+  slug: z.string(),
+  avatar_urls: z.record(z.string()),
+  meta: z.any().array(),
+});
+export type Author = z.infer<typeof Author>;
