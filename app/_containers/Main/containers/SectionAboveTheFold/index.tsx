@@ -1,5 +1,6 @@
 "use client";
 import cx from "clsx";
+import gsap from "gsap";
 import Image from "next/image";
 
 import jpgFigure from "./assets/figure.jpg";

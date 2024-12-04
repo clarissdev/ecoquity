@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
+import styles from "./index.module.scss";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
