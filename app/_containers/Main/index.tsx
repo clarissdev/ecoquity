@@ -1,6 +1,7 @@
 import cx from "clsx";
 
 import SectionAboveTheFold from "./containers/SectionAboveTheFold";
+import SectionArticles from "./containers/SectionArticles";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -12,6 +13,7 @@ export default function Main({ className, style }: Props) {
   return (
     <main className={cx(styles.container, className)} style={style}>
       <SectionAboveTheFold />
+      <SectionArticles />
     </main>
   );
 }

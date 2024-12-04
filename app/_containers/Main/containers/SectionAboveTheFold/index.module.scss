@@ -2,6 +2,7 @@
 @use "@/modules/styles/_mixins.scss" as mixins;
 
 .container {
+
   color: colors.$primary;
   background-image: linear-gradient(
     to bottom right,
