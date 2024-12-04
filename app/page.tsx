@@ -5,10 +5,12 @@ import styles from "./page.module.scss";
 
 export default function Page() {
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <Main></Main>
-      <Footer></Footer>
-    </div>
+    <body>
+      <div className={styles.container}>
+        <Navbar />
+        <Main></Main>
+        <Footer></Footer>
+      </div>
+    </body>
   );
 }

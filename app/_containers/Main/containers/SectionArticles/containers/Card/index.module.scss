@@ -1,0 +1,40 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+@use "sass:color" as color;
+
+.container {
+  display: block;
+
+  border: 1px solid colors.$black16;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.imageContainer {
+  max-height: 12em;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: 500;
+  text-align: left;
+  @include mixins.formatAsLink(false);
+}
+
+.excerpt {
+  text-align: left;
+  @include mixins.lineClamp(3);
+}
+
+.footer {
+  border-top: 1px solid colors.$black16;
+  font-size: 14px;
+  color: colors.$black64;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+}

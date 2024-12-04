@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import { z } from "zod";
 
 import { Main } from "./_containers/Main";
-import styles from "./page.module.scss";
 
 import Footer from "@/app/_containers/Footer";
 import Navbar from "@/app/_containers/Navbar";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
+import { SERVER_ENV } from "@/modules/env";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
 const Props = z.object({
@@ -24,7 +24,7 @@ export default async function Page(props: Props) {
     notFound();
   }
   const { slug } = await parsedProps.data.params;
-  const data = await httpGet$GetPosts(`/posts`, { slug }).catch(
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, { slug }).catch(
     intentionallyIgnoreError,
   );
   if (!data) {
@@ -32,10 +32,55 @@ export default async function Page(props: Props) {
   }
   const post = data[0];
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <Main post={post} />
-      <Footer></Footer>
-    </div>
+    <>
+      <head>
+        <link
+          rel="stylesheet"
+          href={
+            SERVER_ENV.WORDPRESS_URL +
+            "/wp-includes/blocks/navigation/style.min.css?ver=6.7.1"
+          }
+          type="text/css"
+        />
+        <link
+          rel="stylesheet"
+          href={
+            SERVER_ENV.WORDPRESS_URL +
+            "/wp-includes/blocks/image/style.min.css?ver=6.7.1"
+          }
+          type="text/css"
+        />
+        <link
+          rel="stylesheet"
+          href={
+            SERVER_ENV.WORDPRESS_URL +
+            "/wp-includes/css/dist/block-library/common.min.css?ver=6.7.1"
+          }
+          type="text/css"
+        />
+        <link
+          rel="stylesheet"
+          href={
+            SERVER_ENV.WORDPRESS_URL +
+            "/wp-includes/css/dist/block-library/style.min.css"
+          }
+          type="text/css"
+        />
+        <link
+          rel="stylesheet"
+          href={
+            SERVER_ENV.WORDPRESS_URL +
+            "/wp-content/themes/twentytwentyfive/style.css?ver=1.0"
+          }
+          type="text/css"
+        />
+        <link rel="stylesheet" href="/styles/wp.css" />
+      </head>
+      <body>
+        <Navbar />
+        <Main post={post} />
+        <Footer></Footer>
+      </body>
+    </>
   );
 }

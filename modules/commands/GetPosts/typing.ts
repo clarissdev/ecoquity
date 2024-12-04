@@ -3,6 +3,7 @@ import { z } from "zod";
 
 export const GetPosts$Params = z.object({
   slug: z.string().optional(),
+  per_page: z.number().optional(),
 });
 export type GetPosts$Params = z.infer<typeof GetPosts$Params>;
 

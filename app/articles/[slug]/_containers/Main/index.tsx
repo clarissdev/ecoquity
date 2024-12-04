@@ -4,8 +4,6 @@ import React from "react";
 import styles from "./index.module.scss";
 
 import { Post } from "@/modules/business-types";
-import "./animation.scss";
-import "./wp.scss";
 import { httpGet$GetAuthorById } from "@/modules/commands/GetAuthorById/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
@@ -16,14 +14,20 @@ type Props = {
 };
 
 export async function Main({ className, style, post }: Props) {
-  const author = await httpGet$GetAuthorById("/users", {
+  const author = await httpGet$GetAuthorById("/wp-json/wp/v2/users", {
     id: post.author,
   }).catch(intentionallyIgnoreError);
   return (
-    <main className={cx(className, styles.container)} style={style}>
-      <div className={styles.content}>
+    <main className={cx(styles.container, className)} style={style}>
+      <div
+        style={{
+          paddingTop: "var(--wp--preset--spacing--60)",
+          paddingBottom: "var(--wp--preset--spacing--60)",
+        }}
+        className="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"
+      >
         <h1
-          className={styles.title}
+          className="wp-block-post-title"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         ></h1>
         <div
@@ -41,7 +45,10 @@ export async function Main({ className, style, post }: Props) {
             </a>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+        <div
+          className="entry-content alignfull wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained"
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        ></div>
       </div>
     </main>
   );
