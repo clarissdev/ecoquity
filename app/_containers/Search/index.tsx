@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./index.module.scss";
 
+// Hi
 interface SearchBarProps {
     searchTerm: string
     setSearchTerm: (term: string) => void
