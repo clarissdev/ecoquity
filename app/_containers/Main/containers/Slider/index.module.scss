@@ -1,0 +1,51 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+
+.sliderContainer {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ccc;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+  }
+  
+  .slide {
+    flex: 0 0 50%;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+
+  .figure{
+    height: 100%;
+    width: 25%;
+  }
+  
+  .button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+  }
+  
+  .button:first-of-type {
+    left: 10px;
+  }
+  
+  .button:last-of-type {
+    right: 10px;
+  }
+  

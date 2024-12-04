@@ -1,0 +1,76 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    color: colors.$primary;
+    h1 {
+        @include mixins.media-xs() {
+          font-size: 28px;
+        }
+}}
+
+
+    
+.screen_max_width{
+    position: relative;
+    max-width: 1120px;
+    // margin-inline-start: auto;
+    // margin-inline-end: auto;
+    padding: 36px 20px;
+}
+
+
+
+
+.list_articles{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.slider{
+    padding-right: 13rem;
+    @include mixins.media-xs() {
+        padding-right: 5rem;
+    }
+}
+
+.carousel_container{
+    height: 90vh;
+    width: 90vw;
+    @include mixins.media-sm() {
+        width: 45vw;
+        height: 45vh;
+    }
+}   
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDEFF1;
+}
+
+.figure{
+    height: 100%;
+    width: 100%;
+}
+
+.article_title{
+    padding-top: 36px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    // @include mixins.media-sm() {
+    //     font-size: 14px;
+    // }
+}
+

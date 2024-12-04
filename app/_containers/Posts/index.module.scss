@@ -1,0 +1,30 @@
+// @use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1120px; 
+    padding: 1.5rem; 
+
+}
+
+
+.posts_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include mixins.media-xs() {
+        grid-template-columns: repeat(1, 1fr);
+  }
+    @include mixins.media-lg() {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    gap: 1rem;
+    z-index: 0;
+}
+
+.title{
+    font-size:48px;
+    color: green
+}

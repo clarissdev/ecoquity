@@ -9,6 +9,12 @@
   align-items: center;
   padding: 0 36px;
   font-size: 16px;
+  h1 {
+    @include mixins.media-xs() {
+      font-size: 28px;
+      font-weight: bold;
+  }
+}
 
   @include mixins.media-xs() {
     height: 52px;
@@ -21,11 +27,12 @@
   a {
     all: unset;
     display: inline;
-
+    text-decoration: none;
     color: colors.$primary;
     font-weight: 700;
     @include mixins.formatAsLink(false);
   }
+
 }
 
 .logo {
@@ -50,4 +57,41 @@
   @include mixins.media-lg() {
     display: none;
   }
+}
+
+.navbar_lg{
+  // display: flex;
+  @include mixins.media-xs() {
+    display: none;
+  }
+  @include mixins.media-lg() {
+    display: flex;
+  }
+}
+
+
+.navbat_sm{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @include mixins.media-xs() {
+    display: flex;
+  }
+  @include mixins.media-lg() {
+    display: none ;
+  }
+}
+.nav_link{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+
+.text_sm{
+  font-size: 14px;
 }

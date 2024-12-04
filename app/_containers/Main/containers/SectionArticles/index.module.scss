@@ -1,0 +1,22 @@
+@use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
+
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    color: colors.$primary;
+    h1 {
+        @include mixins.media-xs() {
+          font-size: 28px;
+    }
+}}
+
+.highlights{
+    padding: 36px 20px;
+}
+
+.slider{
+    padding: 36px 20px;
+}
