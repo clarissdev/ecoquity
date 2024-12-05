@@ -30,12 +30,6 @@
     outline-style: solid;
     outline-color: colors.$primary;
   }
-
-  // &[href$="#disabled"] {
-  //   pointer-events: none;
-  //   text-decoration-color: theme.$colorLnDisabled;
-  //   color: theme.$colorLnDisabled;
-  // }
 }
 
 // https://getbootstrap.com/docs/5.0/layout/breakpoints/
@@ -77,5 +71,15 @@
 @mixin media-xx() {
   @media (min-width: 1400px) {
     @content;
+  }
+}
+
+@mixin lineClamp($limit) {
+  @supports (-webkit-line-clamp: #{$limit}) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: #{$limit};
   }
 }

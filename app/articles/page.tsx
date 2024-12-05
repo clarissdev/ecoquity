@@ -2,16 +2,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
+import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
 export default async function Page() {
-  const data = await httpGet$GetPosts(`/posts`, {}).catch((error) => {
-    console.log(error);
-  });
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {})
+    .catch((error) => {
+      console.log(error);
+    })
+    .catch(intentionallyIgnoreError);
   if (!data) {
     notFound();
   }
   return (
-    <div>
+    <body>
       <h1>List Article</h1>
       {data.map((post) => (
         <div key={post.id.toString()}>
@@ -21,6 +24,6 @@ export default async function Page() {
           ></Link>
         </div>
       ))}
-    </div>
+    </body>
   );
 }

@@ -29,7 +29,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
             the lead in building a sustainable future.
           </p>
           <div>
-            <Button.Link href="">Explore Our Articles</Button.Link>
+            <Button.Link href="/articles">Explore Our Articles</Button.Link>
           </div>
         </Flex.Col>
         <Flex.Row
