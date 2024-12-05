@@ -20,7 +20,7 @@ type Props = {
 export default function SectionAboveTheFold({ className, style }: Props) {
   useGSAP(() => {
     gsap.fromTo(
-      "#h1",
+      "h1",
       {
         x: -200,
         opacity: 0,
@@ -33,7 +33,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
       }
     );
     gsap.fromTo(
-      "#p",
+      "p",
       {
         y: -100,
         opacity: 0,
@@ -46,7 +46,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
       }
     );
     gsap.fromTo(
-      "#p",
+      "p",
       {
         y: -100,
         opacity: 0,
@@ -59,7 +59,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
       }
     );
     gsap.fromTo(
-      "#img",
+      "img",
       {
         x: 0,
         opacity: 0,
@@ -104,10 +104,10 @@ export default function SectionAboveTheFold({ className, style }: Props) {
           gap="24px"
           className={styles.row}
         >
-          <h1 id="h1">
+          <h1 className="h1">
             Ecoquity: Young People Taking Action for a Sustainable Future
           </h1>
-          <p id="p">
+          <p className="p">
             Ecoquity is more than just a club. Born out of urgency and hope
             during a record-breaking summer, Ecoquity empowers students to take
             the lead in building a sustainable future.

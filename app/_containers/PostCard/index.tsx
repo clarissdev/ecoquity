@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./index.module.scss";
 import Image from "next/image";
 
-interface Post {
+type Post =  {
     id: number
     title: string
     description: string
@@ -20,7 +20,7 @@ export default function PostCard ({ post }: { post: Post }){
           alt ="content image"
           className={styles.img}
         />
-        <div className={styles.gradient_overlay}>
+        <div className={styles.gradientOverlay}>
           <div className={styles.title_container}>
             <h2 className={styles.title_text}>
               {post.title}
