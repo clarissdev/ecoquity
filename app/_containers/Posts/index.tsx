@@ -14,8 +14,8 @@ interface Post {
 
 
 export default function Posts ({ posts }: { posts: Post[] }) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTag, setSelectedTag] = useState('')
+  const [searchTerm, onChangeSearchTerm] = useState('')
+  const [selectedTag, onChangeSelectedTag] = useState('')
 
   const allTags = useMemo(() => {
     const tagSet = new Set<string>()
@@ -34,12 +34,13 @@ export default function Posts ({ posts }: { posts: Post[] }) {
 
   return(
     <div className={styles.container}>
-      <div className={styles.header}>All posts</div>
+      <h1>All posts</h1>
+
       <Search 
         searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
+        onChangeSearchTerm={onChangeSearchTerm}
         selectedTag={selectedTag}
-        setSelectedTag={setSelectedTag}
+        onChangeSelectedTag={onChangeSelectedTag}
         tags={allTags}
       />
       <div className={styles.posts}>

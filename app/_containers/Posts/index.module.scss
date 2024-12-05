@@ -1,28 +1,21 @@
-// @use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_colors.scss" as colors;
 @use "@/modules/styles/_mixins.scss" as mixins;
 
 /* Main Container */
-// .container {
-//     max-width: 100%;
-//     margin: 0 auto; 
-//     padding: 32px 16px; 
-//   }
-
 .container {
     margin-left: auto;
     margin-right: auto;
     max-width: 1120px; 
     padding: 1.5rem; 
+    h1 {
+      @include mixins.media-xs() {
+        font-size: 28px;
+        color: colors.$primary;
+        margin-bottom: 32px
+    }}
 
 }
-  
-  /* Header (h1) */
-.header {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 600; /* font-semibold */
-    color: #15803d; /* text-green-700 */
-    margin-bottom: 32px; /* mb-8 */
-}
+
   
   /* Grid Layout */
 .posts{

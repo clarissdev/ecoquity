@@ -1,18 +1,15 @@
 import React from 'react'
 import styles from "./index.module.scss";
 
-// Hi
-interface SearchBarProps {
+type Props = {
     searchTerm: string
-    setSearchTerm: (term: string) => void
+    onChangeSearchTerm: (value: string) => void
     selectedTag: string
-    setSelectedTag: (tag: string) => void
+    onChangeSelectedTag: (value: string) => void
     tags: string[]
 }
 
-
-
-const Search = ({ searchTerm, setSearchTerm, selectedTag, setSelectedTag, tags }: SearchBarProps) => {
+const Search = ({ searchTerm, onChangeSearchTerm, selectedTag, onChangeSelectedTag, tags }: Props) => {
   return (
     <div className={styles.container}>
         <div className={styles.searchBar}>
@@ -21,13 +18,13 @@ const Search = ({ searchTerm, setSearchTerm, selectedTag, setSelectedTag, tags }
                 placeholder='Search posts...'
                 className={styles.searchInput}
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => onChangeSearchTerm(e.target.value)}
             />
         </div>
         <div className={styles.category}>
             <select 
                 value={selectedTag}
-                onChange={(e) => setSelectedTag(e.target.value)}
+                onChange={(e) => onChangeSelectedTag(e.target.value)}
                 className={styles.selectDropdown}
             >
                 <option value="">All tags</option>

@@ -1,3 +1,4 @@
+@use "@/modules/styles/_colors.scss" as colors;
 @use "@/modules/styles/_mixins.scss" as mixins;
 
 
@@ -12,16 +13,16 @@
     cursor: pointer;
 }
   
-  .article:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); 
-  }
+.article:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); 
+}
   
 /* Image Container */
 .cardImg {
     position: relative;
     aspect-ratio: 4 / 3; 
     overflow: hidden;
-  }
+}
   
 /* Image */
 .img {
@@ -36,7 +37,7 @@
 }
   
 /* Gradient Overlay */
-.gradient_overlay{
+.gradientOverlay{
     position: absolute;
     inset: 0; 
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
@@ -98,15 +99,17 @@
 /* Time */
 .time {
     font-size: 0.875rem; 
-    color: #6b7280; 
+    color: colors.$black80; 
 }
 
 /* Padding */
 .padding_1 {
   padding: 16px; 
 }
+
 .padding_2{
   padding-left: 16px;
   padding-top: 16px;
   margin-bottom: 16px;
 }
+

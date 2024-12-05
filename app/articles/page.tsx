@@ -5,7 +5,7 @@ import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import Navbar from "../_containers/Navbar";
 import Footer from "../_containers/Footer";
 import Posts from "../_containers/Posts";
-
+import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
 interface Post {
   id: number
@@ -41,12 +41,14 @@ const dummyPosts: Post[] = [
 
 
 export default async function Page() {
-  // const data = await httpGet$GetPosts(`/posts`, {}).catch((error) => {
-  //   console.log(error);
-  // });
-  // if (!data) {
-  //   notFound();
-  // }
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {})
+    .catch((error) => {
+      console.log(error);
+    })
+    .catch(intentionallyIgnoreError);
+  if (!data) {  
+    notFound();
+  }
   return (
     <div className={styles.container}>
       <Navbar />
