@@ -17,7 +17,7 @@ export default async function Page() {
     notFound();
   }
   return (
-    <div className={styles.container}>
+    <div className={styles.container}>c
       <Navbar />
       <Posts posts = {data}/>
       <Footer />
