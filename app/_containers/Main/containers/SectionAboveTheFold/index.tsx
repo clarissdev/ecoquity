@@ -126,7 +126,6 @@ export default function SectionAboveTheFold({ className, style }: Props) {
             width="400"
             src={jpgFigure}
             alt="figure"
-            id="img"
           />
         </Flex.Row>
       </Flex.Row>
