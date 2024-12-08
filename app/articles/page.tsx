@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
+import styles from "./index.module.scss";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
+import Navbar from "../_containers/Navbar";
+import Footer from "../_containers/Footer";
+import Posts from "./_containers/SectionPosts";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
 export default async function Page() {
@@ -10,20 +13,14 @@ export default async function Page() {
       console.log(error);
     })
     .catch(intentionallyIgnoreError);
-  if (!data) {
+  if (!data) {  
     notFound();
   }
   return (
-    <body>
-      <h1>List Article</h1>
-      {data.map((post) => (
-        <div key={post.id.toString()}>
-          <Link
-            href={`/articles/${post.slug}`}
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          ></Link>
-        </div>
-      ))}
-    </body>
+    <div className={styles.container}>c
+      <Navbar />
+      <Posts posts = {data}/>
+      <Footer />
+    </div>
   );
 }
