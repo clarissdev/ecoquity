@@ -1,29 +1,24 @@
 import React from 'react'
 import styles from "./index.module.scss";
 import Image from "next/image";
-
-type Post =  {
-    id: number
-    title: string
-    description: string
-    imageUrl: string
-    tags: string[]
-  }
+import { Post } from '@/modules/business-types';
+import { useState, useEffect } from 'react';
 
 export default function PostCard ({ post }: { post: Post }){
+
   return (
     <article className={styles.article}>
       {/* Card image */}
       <div className={styles.cardImg}>
-        <img 
-          src={post.imageUrl}
+        {/* <img 
+          src={imageUrl}
           alt ="content image"
           className={styles.img}
-        />
+        /> */}
         <div className={styles.gradientOverlay}>
           <div className={styles.title_container}>
             <h2 className={styles.title_text}>
-              {post.title}
+              {post.title.rendered}
             </h2>
           </div>
         </div>
@@ -44,9 +39,9 @@ export default function PostCard ({ post }: { post: Post }){
       {/* Description & time */}
       <div className={styles.padding_2}>
         <div className={styles.description}>
-          {post.description}
+          {post.excerpt.rendered}
         </div>
-        <time className={styles.time}>20/11/2006</time>
+        <time className={styles.time}>{post.date}</time>
       </div>
     </article>
   )
