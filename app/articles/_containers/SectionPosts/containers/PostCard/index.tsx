@@ -5,6 +5,11 @@ import { Post } from '@/modules/business-types';
 import { useState, useEffect } from 'react';
 
 export default function PostCard ({ post }: { post: Post }){
+  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric', 
+  });
 
   return (
     <article className={styles.article}>
@@ -38,10 +43,17 @@ export default function PostCard ({ post }: { post: Post }){
       </div>
       {/* Description & time */}
       <div className={styles.padding_2}>
-        <div className={styles.description}>
-          {post.excerpt.rendered}
-        </div>
-        <time className={styles.time}>{post.date}</time>
+        <div 
+          className={styles.description} 
+          dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
+        />
+        <time className={styles.time}>{formattedDate}</time>
+        {post.categories.map((category) => (
+          <>
+            <div>{category}</div>
+          </>
+
+        ))}
       </div>
     </article>
   )

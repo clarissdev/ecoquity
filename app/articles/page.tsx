@@ -14,7 +14,6 @@ export default async function Page() {
     notFound();
   }
   return (
-<<<<<<< HEAD
     <body>
       <h1>List Article</h1>
       {data.map((post) => (
@@ -26,12 +25,5 @@ export default async function Page() {
         </div>
       ))}
     </body>
-=======
-    <div className={styles.container}>c
-      <Navbar />
-      <Posts posts = {data}/>
-      <Footer />
-    </div>
->>>>>>> 202586b (check)
   );
 }
