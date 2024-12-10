@@ -7,8 +7,9 @@ import Footer from "../_containers/Footer";
 import Posts from "./_containers/SectionPosts";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
+
 export default async function Page() {
-  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {})
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {categories: 3})  // 3 coresponding to "article" category
     .catch((error) => {
       console.log(error);
     })
@@ -16,11 +17,15 @@ export default async function Page() {
   if (!data) {  
     notFound();
   }
+  
   return (
-    <div className={styles.container}>c
-      <Navbar />
-      <Posts posts = {data}/>
-      <Footer />
-    </div>
+    <body>
+      <div className={styles.container}>c
+        <Navbar />
+        <Posts posts = {data} />
+        <Footer />
+      </div>
+    </body>
+
   );
 }
