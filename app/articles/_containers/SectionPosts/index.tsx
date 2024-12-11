@@ -8,7 +8,7 @@ import cx from "clsx";
 type Props = {
   className?: string;
   style?: React.CSSProperties;
-  posts: Post[]
+  posts: Post[]; 
 };
 
 

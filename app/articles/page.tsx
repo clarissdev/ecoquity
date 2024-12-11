@@ -9,18 +9,19 @@ import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreErr
 
 
 export default async function Page() {
-  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {categories: 3})  // 3 coresponding to "article" category
+  const ARTICLE_CATEGORY_ID = 3
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, { categories: ARTICLE_CATEGORY_ID })
     .catch((error) => {
       console.log(error);
     })
     .catch(intentionallyIgnoreError);
-  if (!data) {  
+  if (!data) {
     notFound();
   }
   
   return (
     <body>
-      <div className={styles.container}>c
+      <div className={styles.container}>
         <Navbar />
         <Posts posts = {data} />
         <Footer />
