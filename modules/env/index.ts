@@ -5,5 +5,5 @@ export const ServerEnv = z.object({
 });
 
 export const SERVER_ENV = ServerEnv.parse({
-  WORDPRESS_URL: process.env.WORDPRESS_URL,
+  WORDPRESS_URL: process.env.NEXT_PUBLIC_WORDPRESS_URL,
 });

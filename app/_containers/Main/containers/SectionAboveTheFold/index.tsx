@@ -1,4 +1,7 @@
+"use client";
+import { useGSAP } from "@gsap/react";
 import cx from "clsx";
+import gsap from "gsap";
 import Image from "next/image";
 
 import jpgFigure from "./assets/figure.jpg";
@@ -13,6 +16,48 @@ type Props = {
 };
 
 export default function SectionAboveTheFold({ className, style }: Props) {
+  useGSAP(() => {
+    gsap.fromTo(
+      "h1",
+      {
+        x: -25,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      },
+    );
+    gsap.fromTo(
+      "p",
+      {
+        y: -25,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
+    gsap.fromTo(
+      "img",
+      {
+        x: 0,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
+  }, []);
+
   return (
     <section className={cx(styles.container, className)} style={style}>
       <Flex.Row flexWrap="wrap" className={styles.content}>
@@ -22,8 +67,10 @@ export default function SectionAboveTheFold({ className, style }: Props) {
           gap="24px"
           className={styles.row}
         >
-          <h1>Ecoquity: Young People Taking Action for a Sustainable Future</h1>
-          <p>
+          <h1 className="h1">
+            Ecoquity: Young People Taking Action for a Sustainable Future
+          </h1>
+          <p className="p">
             Ecoquity is more than just a club. Born out of urgency and hope
             during a record-breaking summer, Ecoquity empowers students to take
             the lead in building a sustainable future.

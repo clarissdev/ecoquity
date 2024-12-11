@@ -19,7 +19,7 @@ export const Post = z.object({
   content: z.object({
     rendered: z.string(),
     protected: z.boolean(),
-  }),
+  }), 
   excerpt: z.object({
     rendered: z.string(),
     protected: z.boolean(),

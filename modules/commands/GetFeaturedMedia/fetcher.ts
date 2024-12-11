@@ -13,7 +13,7 @@ export async function httpGet$GetFeaturedMedia(
     }
   );
   if (!response.ok) {
-    throw new Error("response not ok");
+    throw new Error(`response not ok`);
   }
   const text = await response.text();
   const data = JSON.parse(text);
