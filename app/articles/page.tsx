@@ -1,26 +1,29 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import styles from "./index.module.scss";
+
+import Footer from "../_containers/Footer";
+import Navbar from "../_containers/Navbar";
+
+import Main from "./_containers/Main";
+import styles from "./page.module.scss";
+
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
+const ARTICLE_CATEGORY_ID = 3;
+
 export default async function Page() {
-  const ARTICLE_CATEGORY_ID = 3;
   const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
     categories: ARTICLE_CATEGORY_ID,
-  })
-    .catch((error) => {
-      console.log(error);
-    })
-    .catch(intentionallyIgnoreError);
+  }).catch(intentionallyIgnoreError);
   if (!data) {
     notFound();
   }
+
   return (
     <body>
       <div className={styles.container}>
         <Navbar />
-        <Posts posts={data} />
+        <Main posts={data} />
         <Footer />
       </div>
     </body>

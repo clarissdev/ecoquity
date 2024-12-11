@@ -1,4 +1,5 @@
 "use client";
+import { useGSAP } from "@gsap/react";
 import cx from "clsx";
 import gsap from "gsap";
 import Image from "next/image";
@@ -8,9 +9,6 @@ import styles from "./index.module.scss";
 
 import Button from "@/modules/app-ui/Button";
 import Flex from "@/modules/app-ui/Flex";
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 type Props = {
   className?: string;
@@ -22,7 +20,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
     gsap.fromTo(
       "h1",
       {
-        x: -200,
+        x: -25,
         opacity: 0,
       },
       {
@@ -30,12 +28,12 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power2.inOut",
-      }
+      },
     );
     gsap.fromTo(
       "p",
       {
-        y: -100,
+        y: -25,
         opacity: 0,
       },
       {
@@ -43,20 +41,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-      }
-    );
-    gsap.fromTo(
-      "p",
-      {
-        y: -100,
-        opacity: 0,
       },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.25,
-        ease: "power1.inOut",
-      }
     );
     gsap.fromTo(
       "img",
@@ -69,29 +54,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-      }
-    );
-    gsap.fromTo(
-      "#p",
-      {
-        opacity: 0,
       },
-      {
-        opacity: 1,
-        delay: 0.75,
-        ease: "power1.inOut",
-      }
-    );
-    gsap.fromTo(
-      "#button",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        delay: 0.75,
-        ease: "power1.inOut",
-      }
     );
   }, []);
 
