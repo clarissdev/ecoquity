@@ -1,9 +1,10 @@
+'use client'
 import React from 'react'
 import styles from "./index.module.scss";
 import Image from "next/image";
 import { Post } from '@/modules/business-types';
-import { useState, useEffect } from 'react';
 import cx from "clsx";
+import { httpGet$GetFeaturedMedia } from "@/modules/commands/GetFeaturedMedia/fetcher";
 
 type Props = {
   className?: string;
@@ -11,23 +12,26 @@ type Props = {
   post: Post; 
 };
 
-export default function PostCard ({ className, style, post}: Props){
+export default async function PostCard ({ className, style, post}: Props){
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric', 
     month: 'long', 
     day: 'numeric', 
   });
+  const media = await httpGet$GetFeaturedMedia(`/wp-json/wp/v2/media`, {id: post.featured_media});
 
   return (
     <section  className={cx(styles.container, className)} style={style}>
       <article className={styles.article}>
           {/* Card image */}
           <div className={styles.cardImg}>
-            {/* <Img 
-              src={imageUrl}
+            <Image
+              src={media.source_url}
               alt ="content image"
               className={styles.img}
-            /> */}
+              width="200"
+              height="200"
+            />
             <div className={styles.gradientOverlay}>
               <div className={styles.title_container}>
                 <h2 className={styles.title_text}>

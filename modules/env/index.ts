@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const ServerEnv = z.object({
-  WORDPRESS_URL: z.string().min(1),
+  WORDPRESS_URL: z.string().min(1).optional(),
 });
 
 export const SERVER_ENV = ServerEnv.parse({
