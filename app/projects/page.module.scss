@@ -1,0 +1,5 @@
+@use "@/modules/styles/_colors.scss" as colors;
+
+.container {
+  background-color: colors.$white;
+}
