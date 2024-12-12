@@ -28,7 +28,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power2.inOut",
-      }
+      },
     );
     gsap.fromTo(
       "p",
@@ -41,7 +41,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-      }
+      },
     );
     gsap.fromTo(
       "img",
@@ -54,7 +54,7 @@ export default function SectionAboveTheFold({ className, style }: Props) {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-      }
+      },
     );
   }, []);
 
