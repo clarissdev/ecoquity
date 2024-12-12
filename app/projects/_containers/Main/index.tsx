@@ -1,9 +1,9 @@
 import cx from "clsx";
 import React from "react";
 
+import CardProject from "./CardProject";
 import styles from "./index.module.scss";
 
-import CardArticle from "@/app/articles/_containers/Main/containers/CardArticle";
 import { Post } from "@/modules/business-types";
 
 type Props = {
@@ -19,7 +19,7 @@ export default function Main({ className, style, posts }: Props) {
         <h1>All Projects</h1>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <CardArticle key={post.id} post={post} />
+            <CardProject key={post.id} post={post} />
           ))}
         </div>
       </div>
