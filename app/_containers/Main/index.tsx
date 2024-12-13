@@ -22,15 +22,11 @@ export default async function Main({ className, style }: Props) {
   if (!data) {
     notFound();
   }
-  // Fetch latest post
-  const sortedPosts = data.sort((a: { date: string }, b: { date: string }) => {return new Date(b.date).getTime() - new Date(a.date).getTime();
-        });
-  const three_latest = sortedPosts.slice(0, 3);
   
   return (
       <main className={cx(styles.container, className)} style={style}>
         <SectionAboveTheFold />
-        <SectionArticles posts={three_latest}/>
+        <SectionArticles posts={data}/>
       </main>
 
   );
