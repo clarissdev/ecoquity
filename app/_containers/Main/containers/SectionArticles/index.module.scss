@@ -4,14 +4,14 @@
 .container {
     color: colors.$primary;
     padding: 36px 20px;
-    h1 {
-        @include mixins.media-xs() {
-          font-size: 28px;
-        }
-        @include mixins.media-lg() {
-          font-size: 52px;
-        }
-      }
+  h1 {
+    @include mixins.media-xs() {
+      font-size: 28px;
+    }
+    @include mixins.media-lg() {
+      font-size: 52px;
+    }
+    }
 
 }
 
@@ -23,11 +23,11 @@
     overflow-x: auto;
     padding-bottom: 2rem;
   }
-    @include mixins.media-lg() {
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr);
-      margin: 2rem;
-    }
+  @include mixins.media-lg() {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2rem;
+  }
 }
 
 .articles{

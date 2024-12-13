@@ -6,18 +6,19 @@ import styles from "./index.module.scss";
 import SectionArticles from "./containers/SectionArticles";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
+import { ARTICLE_CATEGORY_ID } from "@/modules/constants/articles";
 
 type Props = {
   className?: string;
   style?: React.CSSProperties;
 };
 
-const ARTICLE_CATEGORY_ID = 3;
+
 
 export default async function Main({ className, style }: Props) {
-  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
-    categories: ARTICLE_CATEGORY_ID,
-  }).catch(intentionallyIgnoreError);
+  // Fetch the three newest articles
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {per_page: 3, categories: ARTICLE_CATEGORY_ID, orderby: 'date', order: 'desc'})
+  .catch(intentionallyIgnoreError);
   if (!data) {
     notFound();
   }

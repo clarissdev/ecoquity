@@ -8,8 +8,8 @@ import styles from "./page.module.scss";
 
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
+import { ARTICLE_CATEGORY_ID } from "@/modules/constants/articles";
 
-const ARTICLE_CATEGORY_ID = 3;
 
 export default async function Page() {
   const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {

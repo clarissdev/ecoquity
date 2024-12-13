@@ -1,0 +1,1 @@
+export const ARTICLE_CATEGORY_ID = 3;
