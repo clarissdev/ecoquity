@@ -6,6 +6,8 @@ export const GetPosts$Params = z.object({
   page: z.number().optional(),
   per_page: z.number().optional(),
   categories: z.number().array().optional(),
+  orderby: z.string().optional(),
+  order: z.string().optional(),
   
 });
 export type GetPosts$Params = z.infer<typeof GetPosts$Params>;
