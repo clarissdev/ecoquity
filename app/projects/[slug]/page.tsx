@@ -5,7 +5,7 @@ import { Main } from "./_containers/Main";
 
 import Footer from "@/app/_containers/Footer";
 import Navbar from "@/app/_containers/Navbar";
-import { ARTICLE_CATEGORY_ID } from "@/modules/app-config";
+import { PROJECT_CATEGORY_ID } from "@/modules/app-config";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { SERVER_ENV } from "@/modules/env";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
@@ -27,7 +27,7 @@ export default async function Page(props: Props) {
   const { slug } = await parsedProps.data.params;
   const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
     slug,
-    categories: [ARTICLE_CATEGORY_ID],
+    categories: [PROJECT_CATEGORY_ID],
   }).catch(intentionallyIgnoreError);
   if (!data || !data.length) {
     notFound();
