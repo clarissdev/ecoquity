@@ -10,7 +10,7 @@ export async function httpGet$GetPosts(path: string, params?: GetPosts$Params) {
   }
   const response = await fetch(
     SERVER_ENV.WORDPRESS_URL + path + "?" + urlSearchParams.toString(),
-    {     
+    {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     }
