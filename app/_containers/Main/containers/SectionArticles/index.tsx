@@ -1,7 +1,9 @@
 import cx from "clsx";
+
 import styles from "./index.module.scss";
-import { Post } from "@/modules/business-types";
+
 import CardArticle from "@/app/articles/_containers/Main/containers/CardArticle";
+import { Post } from "@/modules/business-types";
 
 type Props = {
   className?: string;
