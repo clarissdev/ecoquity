@@ -10,7 +10,6 @@ import { Post } from "@/modules/business-types";
 import { httpGet$GetFeaturedMedia } from "@/modules/commands/GetFeaturedMedia/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
-
 type Props = {
   className?: string;
   style?: React.CSSProperties;
