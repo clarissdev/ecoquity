@@ -14,7 +14,13 @@
   }
 }
 
+.title {
+  text-align: center;
+}
+
 .articlesContainer {
+  max-width: 1024px;
+  margin: 0 auto;
   @include mixins.media-xs() {
     margin-top: 1rem;
     display: flex;
@@ -25,7 +31,6 @@
   @include mixins.media-lg() {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 2rem;
   }
 }
 
