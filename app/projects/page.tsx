@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Footer from "../_containers/Footer";
@@ -9,6 +10,15 @@ import styles from "./page.module.scss";
 import { PROJECT_CATEGORY_ID } from "@/modules/app-config";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
+
+export const metadata: Metadata = {
+  title: "All Projects",
+  description: "Sample Description",
+  viewport: {
+    width: "device-width",
+    initialScale: 0.75,
+  },
+};
 
 export default async function Page() {
   const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {

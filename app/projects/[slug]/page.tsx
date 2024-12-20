@@ -9,15 +9,37 @@ import { PROJECT_CATEGORY_ID } from "@/modules/app-config";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { SERVER_ENV } from "@/modules/env";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
+import { Metadata } from "next";
 
 const Props = z.object({
   params: z.promise(
     z.object({
       slug: z.string(),
-    }),
+    })
   ),
 });
 type Props = z.infer<typeof Props>;
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const parsedProps = Props.safeParse(props);
+  if (parsedProps.error) {
+    notFound();
+  }
+  const { slug } = await parsedProps.data.params;
+  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
+    slug,
+    categories: [PROJECT_CATEGORY_ID],
+  }).catch(intentionallyIgnoreError);
+  const post = data?.[0];
+  return {
+    title: post?.title.rendered || "Untitled",
+    description: post?.excerpt.rendered || "From ecoquity.club",
+    viewport: {
+      width: "device-width",
+      initialScale: 0.75,
+    },
+  };
+}
 
 export default async function Page(props: Props) {
   const parsedProps = Props.safeParse(props);
@@ -76,7 +98,7 @@ export default async function Page(props: Props) {
           }
           type="text/css"
         />
-        <link rel="stylesheet" href="/styles/wp.css" />
+        <link rel="stylesheet" href="/styles/wp.css" type="text/css" />
       </head>
       <body>
         <Navbar />
