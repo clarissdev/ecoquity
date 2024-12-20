@@ -1,5 +1,6 @@
 import cx from "clsx";
 import Link from "next/link";
+import { AiFillInstagram } from "react-icons/ai";
 import { MdEmail, MdFacebook } from "react-icons/md";
 
 import Logo from "./components/Logo";
@@ -47,6 +48,14 @@ export default function Footer({ className, style }: Props) {
                 href="https://www.facebook.com/profile.php?id=61565418491283"
               >
                 <MdFacebook />
+              </Link>
+              <Link
+                className={styles.linkIcon}
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.instagram.com/ecoquity_vinuni"
+              >
+                <AiFillInstagram />
               </Link>
             </Flex.Row>
           </Flex.Row>
