@@ -1,4 +1,5 @@
 @use "@/modules/styles/_colors.scss" as colors;
+@use "@/modules/styles/_mixins.scss" as mixins;
 @use "sass:color" as color;
 
 .container {
@@ -67,4 +68,24 @@
 
 .colorPrimary {
   color: colors.$primary;
+}
+
+.bigLogo {
+  @include mixins.media-xs() {
+    display: none;
+  }
+
+  @include mixins.media-lg() {
+    display: block;
+  }
+}
+
+.smallLogo {
+  @include mixins.media-xs() {
+    display: block;
+  }
+
+  @include mixins.media-lg() {
+    display: none;
+  }
 }

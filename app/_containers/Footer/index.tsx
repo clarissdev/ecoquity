@@ -24,7 +24,8 @@ export default function Footer({ className, style }: Props) {
           gap="12px"
         >
           <Flex.Cell className={styles.colorPrimary}>
-            <Logo height={53} />
+            <Logo height={53} className={styles.bigLogo} />
+            <Logo height={32} className={styles.smallLogo} />
           </Flex.Cell>
           <Flex.Row gap="12px" alignItems="center" flexWrap="wrap">
             <Flex.Cell>

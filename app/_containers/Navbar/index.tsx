@@ -23,9 +23,6 @@ export default function Navbar({ className, style }: Props) {
         <Link href="/articles" className={styles.link}>
           Article
         </Link>
-        <Link href="/about" className={styles.link}>
-          About Us
-        </Link>
       </Flex.Row>
     </nav>
   );
