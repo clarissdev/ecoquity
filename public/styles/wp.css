@@ -1138,8 +1138,8 @@ h6.has-text-align-right[style*="writing-mode"]:where([style*="vertical-rl"]) {
     2.15rem + ((1vw - 0.2rem) * 1.333),
     3rem
   );
-  --wp--preset--font-family--manrope: Manrope, sans-serif;
-  --wp--preset--font-family--fira-code: "Fira Code", monospace;
+  --wp--preset--font-family--manrope: var(--font-family-manrope);
+  --wp--preset--font-family--fira-code: var(--font-family-fira-code);
   --wp--preset--spacing--20: 10px;
   --wp--preset--spacing--30: 20px;
   --wp--preset--spacing--40: 30px;
