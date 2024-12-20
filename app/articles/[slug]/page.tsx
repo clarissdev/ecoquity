@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 
@@ -9,13 +10,12 @@ import { ARTICLE_CATEGORY_ID } from "@/modules/app-config";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { SERVER_ENV } from "@/modules/env";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
-import { Metadata, ResolvingMetadata } from "next";
 
 const Props = z.object({
   params: z.promise(
     z.object({
       slug: z.string(),
-    })
+    }),
   ),
 });
 type Props = z.infer<typeof Props>;
