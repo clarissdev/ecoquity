@@ -5,6 +5,8 @@ import Main from "./_containers/Main";
 import Navbar from "./_containers/Navbar";
 import styles from "./page.module.scss";
 
+import { THUMBNAIL_URL } from "@/modules/app-config";
+
 export const metadata: Metadata = {
   title: "Ecoquity",
   description:
@@ -13,9 +15,8 @@ export const metadata: Metadata = {
     "articles, and events that empower students to embrace sustainability " +
     "and drive positive change in Vietnam. Join us on our journey towards a" +
     " sustainable campus and community!",
-  viewport: {
-    width: "device-width",
-    initialScale: 0.75,
+  openGraph: {
+    images: [{ url: THUMBNAIL_URL }],
   },
 };
 

@@ -6,7 +6,8 @@ import { Main } from "./_containers/Main";
 
 import Footer from "@/app/_containers/Footer";
 import Navbar from "@/app/_containers/Navbar";
-import { ARTICLE_CATEGORY_ID } from "@/modules/app-config";
+import { ARTICLE_CATEGORY_ID, THUMBNAIL_URL } from "@/modules/app-config";
+import { httpGet$GetFeaturedMedia } from "@/modules/commands/GetFeaturedMedia/fetcher";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { SERVER_ENV } from "@/modules/env";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
@@ -31,12 +32,20 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     categories: [ARTICLE_CATEGORY_ID],
   }).catch(intentionallyIgnoreError);
   const post = data?.[0];
+  const media = post
+    ? await httpGet$GetFeaturedMedia(`/wp-json/wp/v2/media`, {
+        id: post.featured_media,
+      }).catch(intentionallyIgnoreError)
+    : undefined;
   return {
     title: post?.title.rendered || "Untitled",
     description: post?.excerpt.rendered || "From ecoquity.club",
-    viewport: {
-      width: "device-width",
-      initialScale: 0.75,
+    openGraph: {
+      images: [
+        {
+          url: media?.source_url || THUMBNAIL_URL,
+        },
+      ],
     },
   };
 }

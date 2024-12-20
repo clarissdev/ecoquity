@@ -7,7 +7,7 @@ import Navbar from "../_containers/Navbar";
 import Main from "./_containers/Main";
 import styles from "./page.module.scss";
 
-import { ARTICLE_CATEGORY_ID } from "@/modules/app-config";
+import { ARTICLE_CATEGORY_ID, THUMBNAIL_URL } from "@/modules/app-config";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
@@ -18,9 +18,8 @@ export const metadata: Metadata = {
     " on sustainability and environmental stewardship. Join us in exploring" +
     " innovative ideas, projects, and insights aimed at nurturing a sustainable" +
     " future for VinUniversity and Vietnam.",
-  viewport: {
-    width: "device-width",
-    initialScale: 0.75,
+  openGraph: {
+    images: [{ url: THUMBNAIL_URL }],
   },
 };
 
