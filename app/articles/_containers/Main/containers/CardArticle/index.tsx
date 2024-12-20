@@ -40,7 +40,9 @@ export default async function CardArticle({ className, style, post }: Props) {
             />
             <div className={styles.gradientOverlay}>
               <div className={styles.title_container}>
-                <div className={styles.title_text}>{post.title.rendered}</div>
+                <div className={styles.title_text} title={post.title.rendered}>
+                  {post.title.rendered}
+                </div>
               </div>
             </div>
           </div>
