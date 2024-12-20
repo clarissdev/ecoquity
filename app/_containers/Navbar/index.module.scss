@@ -1,14 +1,11 @@
 @use "@/modules/styles/_colors.scss" as colors;
 @use "@/modules/styles/_mixins.scss" as mixins;
+@use "@/modules/styles/_variables.scss" as variables;
 
 .container {
   color: colors.$primary;
+  background-color: colors.$white;
   // border-bottom: 1px solid colors.$black16;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 36px;
-  font-size: 16px;
 
   @include mixins.media-xs() {
     height: 52px;
@@ -25,6 +22,28 @@
     color: colors.$primary;
     font-weight: 700;
     @include mixins.formatAsLink(false);
+  }
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: colors.$white;
+  padding: 0 36px;
+  font-size: 16px;
+  z-index: variables.$zIndexNavbar;
+
+  @include mixins.media-xs() {
+    height: 52px;
+  }
+
+  @include mixins.media-lg() {
+    height: 80px;
   }
 }
 

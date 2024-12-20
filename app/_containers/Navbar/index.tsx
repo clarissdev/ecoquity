@@ -15,15 +15,17 @@ type Props = {
 export default function Navbar({ className, style }: Props) {
   return (
     <nav className={cx(styles.container, className)} style={style}>
-      <Link href="/" className={styles.link}>
-        <Logo.Compress height={52} className={styles.logo} />
-        <Logo.Compress height={30} className={styles.logoCompress} />
-      </Link>
-      <Flex.Row gap="16px">
-        <Link href="/articles" className={styles.link}>
-          Articles
+      <div className={styles.content}>
+        <Link href="/" className={styles.link}>
+          <Logo.Compress height={52} className={styles.logo} />
+          <Logo.Compress height={30} className={styles.logoCompress} />
         </Link>
-      </Flex.Row>
+        <Flex.Row gap="16px">
+          <Link href="/articles" className={styles.link}>
+            Articles
+          </Link>
+        </Flex.Row>
+      </div>
     </nav>
   );
 }
