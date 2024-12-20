@@ -13,6 +13,7 @@ export async function httpGet$GetPosts(path: string, params?: GetPosts$Params) {
     {
       method: "GET",
       headers: { "Content-Type": "application/json" },
+      cache: "no-store",
     }
   );
   if (!response.ok) {
