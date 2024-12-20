@@ -13,7 +13,11 @@ import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreErr
 
 export const metadata: Metadata = {
   title: "All Projects",
-  description: "Sample Description",
+  description:
+    "Explore the diverse projects of Ecoquity, dedicated to promoting" +
+    " sustainability at VinUniversity. From innovative initiatives to community " +
+    " outreach, discover how our student-led efforts are making a positive" +
+    " impact on the environment and inspiring a culture of sustainability in Vietnam.",
   viewport: {
     width: "device-width",
     initialScale: 0.75,
