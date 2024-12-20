@@ -21,7 +21,7 @@ export default function Navbar({ className, style }: Props) {
       </Link>
       <Flex.Row gap="16px">
         <Link href="/articles" className={styles.link}>
-          Article
+          Articles
         </Link>
       </Flex.Row>
     </nav>
