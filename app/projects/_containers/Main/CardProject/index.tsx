@@ -1,6 +1,5 @@
 import cx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 import thumbnail from "./assets/thumbnail.jpg";
@@ -29,7 +28,7 @@ export default async function CardProject({ className, style, post }: Props) {
   return (
     <div className={cx(styles.container, className)} style={style}>
       <article className={styles.article}>
-        <Link href={`/projects/${post.slug}`}>
+        <a href={`/projects/${post.slug}`}>
           <div className={styles.cardImg}>
             <Image
               src={media?.source_url || thumbnail}
@@ -44,7 +43,7 @@ export default async function CardProject({ className, style, post }: Props) {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
         {post.tags.length > 0 ? (
           <div className={styles.padding_1}>
             <div className={styles.tags_container}>
