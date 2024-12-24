@@ -10,11 +10,10 @@ export function middleware(request: NextRequest) {
   );
   if (
     locales.length === 1 ||
-    pathname === "/favicon.ico" ||
-    pathname === "/opengraph-image.png" ||
+    pathname.startsWith("/favicon.ico") ||
+    pathname.startsWith("/opengraph-image.png") ||
     pathname.startsWith("/styles/")
   ) {
-    request.headers.set("x-url", request.url);
     return;
   }
 
