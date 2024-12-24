@@ -30,6 +30,12 @@
     outline-style: solid;
     outline-color: colors.$primary;
   }
+
+  &[href$="#disabled"] {
+    pointer-events: none;
+    text-decoration: none;
+    color: colors.$black48;
+  }
 }
 
 // https://getbootstrap.com/docs/5.0/layout/breakpoints/

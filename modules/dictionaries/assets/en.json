@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "/": {
+      "title": "Ecoquity",
+      "description": "Welcome to Ecoquity, VinUniversity's student-led sustainability club dedicated to fostering a greener future. Explore our initiatives, articles, and events that empower students to embrace sustainability and drive positive change in Vietnam. Join us on our journey towards a sustainable campus and community!"
+    },
+    "/articles": {
+      "title": "All Articles",
+      "description": "Discover Ecoquity's collection of articles focused on sustainability and environmental stewardship. Join us in exploring innovative ideas, projects, and insights aimed at nurturing a sustainable future for VinUniversity and Vietnam."
+    },
+    "/projects": {
+      "title": "All Projects",
+      "description": "Explore the diverse projects of Ecoquity, dedicated to promoting sustainability at VinUniversity. From innovative initiatives to community outreach, discover how our student-led efforts are making a positive impact on the environment and inspiring a culture of sustainability in Vietnam."
+    }
+  },
+  "navbar": {
+    "articles": "Articles"
+  },
+  "home": {
+    "above_the_fold": {
+      "headline": "Ecoquity: Young People Taking Action for a Sustainable Future",
+      "meta_description": "Ecoquity is more than just a club. Born out of urgency and hope during a record-breaking summer, Ecoquity empowers students to take the lead in building a sustainable future.",
+      "button_explore": "Explore our articles"
+    },
+    "latest_articles": {
+      "headline": "Latest Articles"
+    }
+  },
+  "all_articles": {
+    "headline": "All Articles"
+  },
+  "all_projects": {
+    "headline": "All Projects"
+  },
+  "footer": {
+    "contact_us": "Contact us"
+  }
+}
