@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "/": {
+      "title": "Ecoquity",
+      "description": "Chào mừng bạn đến với Ecoquity, câu lạc bộ bền vững do sinh viên VinUniversity lãnh đạo, cam kết xây dựng một tương lai xanh hơn. Khám phá các sáng kiến, bài viết và sự kiện của chúng tôi nhằm trao quyền cho sinh viên bắt tay vào bền vững và thúc đẩy thay đổi tích cực tại Việt Nam. Hãy tham gia cùng chúng tôi trên hành trình hướng tới một khuôn viên và cộng đồng bền vững!"
+    },
+    "/articles": {
+      "title": "Tất cả bài viết",
+      "description": "Khám phá bộ sưu tập bài viết của Ecoquity tập trung vào bền vững và quản lý môi trường. Hãy tham gia cùng chúng tôi trong việc khám phá những ý tưởng, dự án và hiểu biết sáng tạo nhằm nuôi dưỡng một tương lai bền vững cho VinUniversity và Việt Nam."
+    },
+    "/projects": {
+      "title": "Tất cả dự án",
+      "description": "Khám phá những dự án đa dạng của Ecoquity, được dành riêng để thúc đẩy bền vững tại VinUniversity. Từ những sáng kiến đổi mới đến các hoạt động cộng đồng, hãy tìm hiểu cách những nỗ lực do sinh viên lãnh đạo của chúng tôi đang tạo ra tác động tích cực đến môi trường và truyền cảm hứng cho một văn hóa bền vững tại Việt Nam."
+    }
+  },
+  "navbar": {
+    "articles": "Bài viết"
+  },
+  "home": {
+    "above_the_fold": {
+      "headline": "Ecoquity: Thanh Niên Hành Động vì Tương Lai Bền Vững",
+      "meta_description": "Ecoquity không chỉ là một câu lạc bộ. Ra đời từ sự cấp bách và hy vọng trong một mùa hè kỷ lục, Ecoquity trao quyền cho sinh viên dẫn dắt trong việc xây dựng một tương lai bền vững.",
+      "button_explore": "Khám phá"
+    },
+    "latest_articles": {
+      "headline": "Bài viết mới nhất"
+    }
+  },
+  "all_articles": {
+    "headline": "Tất cả bài viết"
+  },
+  "all_projects": {
+    "headline": "Tất cả dự án"
+  },
+  "footer": {
+    "contact_us": "Liên hệ"
+  }
+}
