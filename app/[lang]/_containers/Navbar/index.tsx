@@ -20,6 +20,7 @@ type Props = {
 
 export default function Navbar({ className, style, dictionary, lang }: Props) {
   const pathname = usePathname();
+  console.log("VAI", `/en` + pathname.substring(3));
   return (
     <nav className={cx(styles.container, className)} style={style}>
       <div className={styles.content}>
@@ -33,14 +34,22 @@ export default function Navbar({ className, style, dictionary, lang }: Props) {
           </Link>
           <Flex.Row gap="8px">
             <Link
-              href={!pathname.startsWith("/en") ? `/en` : "#disabled"}
+              href={
+                !pathname.startsWith("/en")
+                  ? `/en` + pathname.substring(3)
+                  : "#disabled"
+              }
               className={styles.link}
             >
               EN
             </Link>
             <hr className={styles.divider}></hr>
             <Link
-              href={!pathname.startsWith("/vi") ? `/vi` : "#disabled"}
+              href={
+                !pathname.startsWith("/vi")
+                  ? `/vi` + pathname.substring(3)
+                  : "#disabled"
+              }
               className={styles.link}
             >
               VI
