@@ -51,8 +51,10 @@ export default async function Page({ params }: Props) {
   return (
     <body>
       <div className={styles.container}>
-        <Navbar dictionary={dictionary.navbar} lang={lang} />
-        <Main dictionary={dictionary.all_articles} lang={lang} posts={data} />
+        <div className={styles.content}>
+          <Navbar dictionary={dictionary.navbar} lang={lang} />
+          <Main dictionary={dictionary.all_articles} lang={lang} posts={data} />
+        </div>
         <Footer dictionary={dictionary.footer} />
       </div>
     </body>

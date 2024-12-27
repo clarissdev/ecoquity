@@ -1,5 +1,8 @@
 @use "@/modules/styles/_mixins.scss" as mixins;
 
-.container {
-  background-color: white;
+.content {
+  min-height: calc(100vh - 263px);
+}
+.footer {
+  height: 263px;
 }
