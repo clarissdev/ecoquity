@@ -20,7 +20,6 @@ type Props = {
 
 export default function Navbar({ className, style, dictionary, lang }: Props) {
   const pathname = usePathname();
-  console.log("VAI", `/en` + pathname.substring(3));
   return (
     <nav className={cx(styles.container, className)} style={style}>
       <div className={styles.content}>
