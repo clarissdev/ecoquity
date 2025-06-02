@@ -3,13 +3,16 @@ import { notFound } from "next/navigation";
 
 import SectionAboveTheFold from "./containers/SectionAboveTheFold";
 import SectionArticles from "./containers/SectionArticles";
+import SectionProjects from "./containers/SectionProjects";
 import styles from "./index.module.scss";
 
 import {
+  ARTICLE_CATEGORY_ID,
   LANG_CATEGORY_ID,
   Lang,
   PROJECT_CATEGORY_ID,
 } from "@/modules/app-config";
+import { httpGet$GetFeaturedMedia } from "@/modules/commands/GetFeaturedMedia/fetcher";
 import { httpGet$GetPosts } from "@/modules/commands/GetPosts/fetcher";
 import { intentionallyIgnoreError } from "@/modules/error/intentionallyIgnoreError";
 
@@ -27,7 +30,7 @@ export default async function Main({
   dictionary,
 }: Props) {
   // Fetch the three newest articles
-  const data = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
+  const articles = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
     per_page: 3,
     // TODO: filter categories correctly
     categories_exclude: [PROJECT_CATEGORY_ID],
@@ -35,7 +38,29 @@ export default async function Main({
     orderby: "date",
     order: "desc",
   }).catch(intentionallyIgnoreError);
-  if (!data) {
+  if (!articles) {
+    notFound();
+  }
+
+  const projects = await httpGet$GetPosts(`/wp-json/wp/v2/posts`, {
+    per_page: 3,
+    categories_exclude: [ARTICLE_CATEGORY_ID],
+    categories: [LANG_CATEGORY_ID[lang]],
+    orderby: "date",
+    order: "desc",
+  }).catch(intentionallyIgnoreError);
+  if (!projects) {
+    notFound();
+  }
+
+  const projectsMedia = await Promise.all(
+    projects.map((project) =>
+      httpGet$GetFeaturedMedia(`/wp-json/wp/v2/media`, {
+        id: project.featured_media,
+      }).catch(() => undefined),
+    ),
+  ).catch(intentionallyIgnoreError);
+  if (!projectsMedia) {
     notFound();
   }
 
@@ -44,9 +69,17 @@ export default async function Main({
       <SectionAboveTheFold dictionary={dictionary.above_the_fold} lang={lang} />
       <SectionArticles
         dictionary={dictionary.latest_articles}
-        posts={data}
+        posts={articles}
         lang={lang}
       />
+      {projectsMedia.length > 0 ? (
+        <SectionProjects
+          lang={lang}
+          dictionary={dictionary.projects}
+          projects={projects}
+          projectsMedia={projectsMedia}
+        />
+      ) : undefined}
     </main>
   );
 }

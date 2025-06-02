@@ -104,11 +104,7 @@ export default async function Page({ params }: Props) {
           }
           type="text/css"
         />
-        <link
-          rel="stylesheet"
-          href={`/${lang}/styles/wp.css`}
-          type="text/css"
-        />
+        <link rel="stylesheet" href={`/styles/wp.css`} type="text/css" />
       </head>
       <body>
         <Navbar dictionary={dictionary.navbar} lang={lang} />

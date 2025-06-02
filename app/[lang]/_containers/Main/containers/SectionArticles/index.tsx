@@ -24,7 +24,7 @@ export default function SectionArticles({
 }: Props) {
   return (
     <section className={cx(styles.container, className)} style={style}>
-      <div className={styles.container}>
+      <div>
         <h2 className={styles.title}>{dictionary.headline}</h2>
         <div className={styles.articlesContainer}>
           {posts.map((post) => (
