@@ -4,7 +4,6 @@
 /* Base styles */
 .section {
   padding: 36px 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .container {
@@ -27,7 +26,7 @@
 
 @media (min-width: 768px) {
   .title {
-    font-size: 2.25rem;
+    font-size: 32px;
   }
 }
 

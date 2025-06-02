@@ -67,19 +67,19 @@ export default async function Main({
   return (
     <main className={cx(styles.container, className)} style={style}>
       <SectionAboveTheFold dictionary={dictionary.above_the_fold} lang={lang} />
+      {projectsMedia.length > 0 ? (
+        <SectionProjects
+          lang={lang}
+          dictionary={dictionary.featured_projects}
+          projects={projects}
+          projectsMedia={projectsMedia}
+        />
+      ) : undefined}
       <SectionArticles
         dictionary={dictionary.latest_articles}
         posts={articles}
         lang={lang}
       />
-      {projectsMedia.length > 0 ? (
-        <SectionProjects
-          lang={lang}
-          dictionary={dictionary.projects}
-          projects={projects}
-          projectsMedia={projectsMedia}
-        />
-      ) : undefined}
     </main>
   );
 }

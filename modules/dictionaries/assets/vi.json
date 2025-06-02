@@ -24,6 +24,11 @@
     },
     "latest_articles": {
       "headline": "Bài viết mới nhất"
+    },
+    "featured_projects": {
+      "headline": "Dự Án Nổi Bật",
+      "of": "trên",
+      "discover_more": "Khám Phá Thêm"
     }
   },
   "all_articles": {

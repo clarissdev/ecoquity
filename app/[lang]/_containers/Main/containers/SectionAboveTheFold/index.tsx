@@ -100,7 +100,7 @@ export default function SectionAboveTheFold({
         <Flex.Row
           flex="1 1 300px"
           justifyContent="center"
-          className={styles.row}
+          className={cx(styles.row, styles.rowRight)}
         >
           <animated.div
             ref={appearanceSprings.divImg.ref}
@@ -108,7 +108,7 @@ export default function SectionAboveTheFold({
           >
             <Image
               className={styles.figure}
-              width="400"
+              width="600"
               src={jpgFigure}
               alt="figure"
               priority

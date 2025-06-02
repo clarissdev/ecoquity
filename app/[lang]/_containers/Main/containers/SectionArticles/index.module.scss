@@ -4,6 +4,7 @@
 .container {
   color: colors.$primary;
   padding: 36px 20px;
+  border-top: 1px solid colors.$black08;
   h1 {
     @include mixins.media-xs() {
       font-size: 28px;

@@ -15,45 +15,6 @@ import { Lang, THUMBNAIL_URL } from "@/modules/app-config";
 import Button from "@/modules/app-ui/Button";
 import { FeaturedMedia, Post } from "@/modules/business-types";
 
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce solution built with Next.js and Stripe integration. Features include product management, shopping cart, and secure payment processing.",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "#",
-    tags: ["Next.js", "Stripe", "Tailwind CSS"],
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface.",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "#",
-    tags: ["React", "Node.js", "Socket.io"],
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description:
-      "A responsive weather dashboard that provides detailed forecasts, interactive maps, and location-based weather alerts with beautiful data visualizations.",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "#",
-    tags: ["Vue.js", "Chart.js", "Weather API"],
-  },
-  {
-    id: 4,
-    title: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio website showcasing creative work with smooth animations, optimized performance, and SEO-friendly structure.",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "#",
-    tags: ["Gatsby", "GraphQL", "Framer Motion"],
-  },
-];
-
 type Props = {
   className?: string;
   style?: React.CSSProperties;
@@ -92,7 +53,7 @@ export default function ProjectShowcase({
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Featured Projects</h2>
+          <h2 className={styles.title}>{dictionary["headline"]}</h2>
         </div>
 
         {/* Slider Container */}
@@ -144,7 +105,7 @@ export default function ProjectShowcase({
                         href={`/${lang}/projects/${projects[currentIndex].slug}`}
                         icon={<FaExternalLinkAlt className={styles.ctaIcon} />}
                       >
-                        Discover More
+                        {dictionary["discover_more"]}
                       </Button.Link>
                     </div>
                   </div>
@@ -185,7 +146,7 @@ export default function ProjectShowcase({
         {/* Project Counter */}
         <div className={styles.counter}>
           <span className={styles.counterText}>
-            {currentIndex + 1} of {projects.length}
+            {currentIndex + 1} {dictionary["of"]} {projects.length}
           </span>
         </div>
       </div>

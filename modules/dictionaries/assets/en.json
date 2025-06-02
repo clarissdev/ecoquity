@@ -24,6 +24,11 @@
     },
     "latest_articles": {
       "headline": "Latest Articles"
+    },
+    "featured_projects": {
+      "headline": "Featured Project",
+      "of": "of",
+      "discover_more": "Discover More"
     }
   },
   "all_articles": {

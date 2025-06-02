@@ -8,6 +8,10 @@ export async function httpGet$GetPosts(path: string, params?: GetPosts$Params) {
       urlSearchParams.append(key.toString(), value.toString());
     });
   }
+  console.log(
+    "VAI",
+    SERVER_ENV.WORDPRESS_URL + path + "?" + urlSearchParams.toString()
+  );
   const response = await fetch(
     SERVER_ENV.WORDPRESS_URL + path + "?" + urlSearchParams.toString(),
     {
