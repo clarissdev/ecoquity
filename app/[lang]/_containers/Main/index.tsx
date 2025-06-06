@@ -57,8 +57,8 @@ export default async function Main({
     projects.map((project) =>
       httpGet$GetFeaturedMedia(`/wp-json/wp/v2/media`, {
         id: project.featured_media,
-      }).catch(() => undefined)
-    )
+      }).catch(() => undefined),
+    ),
   ).catch(intentionallyIgnoreError);
   if (!projectsMedia) {
     notFound();
